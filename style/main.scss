@@ -1,39 +1,11 @@
-@mixin base-shadow($base-shadow) {
-    box-shadow: $base-shadow;
-    -webkit-box-shadow: $base-shadow;
-    -moz-box-shadow: $base-shadow;
-    -ms-box-shadow: $base-shadow;
-}
+
 
 $base-color: #fd951f;
 $bg-color: #130f0d;
 $white: #f0f0f9;
 
-%black-key {
-    $base-shadow: 1px 0 #777, 0 2px 0 #777, 0 3px 0 #666, 0 4px 0 #555, 0 5px 0 #444, 0 6px 1px rgba(0, 0, 0, 0.1),
-        0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
-        0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
 
-    @include base-shadow($base-shadow);
-}
 
-%black-key-active {
-    $base-shadow: 1px 0 #555, 0 1px 0 #555, 0 1px 0 #444, 0 2px 0 #333;
-
-    @include base-shadow($base-shadow);
-}
-
-%white-key {
-    $base-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-
-    @include base-shadow($base-shadow);
-}
-
-%white-key-active {
-    $base-shadow: -1px 0 15px rgba(0, 0, 0, 0.7) inset;
-
-    @include base-shadow($base-shadow);
-}
 
 * {
     margin: 0;
