@@ -1,14 +1,14 @@
-// get all keys
+// PEGANDO TODAS AS DIVS COM CLASS KEY
 const keys = document.querySelectorAll(".key")
 
 function playNote(event) {
   
   let audioKeyCode = getKeyCode(event);
 
-  // typed or pressed key
+  // tecla digitada ou pressionada
   const key = document.querySelector(`.key[data-key="${audioKeyCode}"]`)
 
-  // if key exists
+  // VERIFICAR SE A TECLA EXISTE
   const cantFoundAnyKey = !key
 
   if(cantFoundAnyKey) {
@@ -19,10 +19,12 @@ function playNote(event) {
   playAudio(audioKeyCode)
 }
 
+// ADICIONAR A CLASS PLAYING (EFEITO DE PROFUNDIDADE)
 function addPlayingClass(key) {
   key.classList.add('playing')
 }
 
+// PEGAR O KEYCODE
 function getKeyCode(event) {
   let keyCode;
 
@@ -36,24 +38,26 @@ function getKeyCode(event) {
   return keyCode
 }
 
+// TOCAR O SOM
 function playAudio(audioKeyCode) {
   const audio = document.querySelector(`audio[data-key="${audioKeyCode}"]`)
   audio.currentTime = 0;
   audio.play()
 }
 
+// REMOVER A CLASS PLAYING (EFEITO DE PROFUNDIDADE)
 function removePlayingClass(event) {
   event.target.classList.remove("playing")
 }
 
 function registerEvents() {
-  // click with mouse
+  // QUANDO CLICK NO MOUSE
   keys.forEach( function(key) {
     key.addEventListener("click", playNote)
     key.addEventListener("transitionend", removePlayingClass)
   })
 
-  // keyboard type
+  //  QUANDO APERTAR UMA TECLA
   window.addEventListener("keydown", playNote)
 }
 
